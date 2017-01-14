@@ -26,7 +26,6 @@ TroopMorg.Harass:Slider("MinManaHarass", "Min Mana To Harass",50,0,100,1)
 TroopMorg:SubMenu("LaneClear", "LaneClear", true)
 TroopMorg.LaneClear:Boolean("Qlc", "Use Q", true)
 TroopMorg.LaneClear:Boolean("Wlc", "Use W", true)
-TroopMorg.LaneClear:Slider("WMin", "Min Minions To R",9,1,15,1)
 TroopMorg.LaneClear:Slider("MinManaLC", "Min Mana To LaneClear",50,0,100,1)
 
 TroopMorg:SubMenu("Misc", "Misc")
@@ -69,6 +68,7 @@ OnTick(function ()
 	local RStats = {delay = 0.050, range = 1000, radius = 300, speed = 1500 + GetMoveSpeed(myHero)}
 	local GetPercentMana = (GetCurrentMana(myHero) / GetMaxMana(myHero)) * 100
 	local target = GetCurrentTarget()
+	local movePos = GetPrediction(target,Move).castPos
 	
 	if TroopMorg.Misc.Lvlup:Value() then
 		spellorder = {_Q, _W, _E, _Q, _Q, _R, _Q, _W, _Q, _W, _R, _W, _W, _E, _E, _R, _E, _E}	
@@ -81,16 +81,22 @@ OnTick(function ()
 		
 		if TroopMorg.Combo.QComb:Value() and Ready(_Q) and ValidTarget(target, 1175) then
 				if TroopMorg.Combo.MinMana:Value() <= GetPercentMana then 
+				local QPred = GetPrediction(target, QStats)
+				if QPred.hitChance >= (TroopMorgu.Prediction.Q:Value() * 0.01) and not QPred:mCollision(1) then
 					CastSkillShot(target, _Q)	
 				end
 			end
+		end
 		
 
 		if TroopMorg.Combo.WComb:Value() and Ready(_W) and ValidTarget(target, 900) then
 			if TroopMorg.Combo.MinMana:Value() <= GetPercentMana then
+				local WPred = GetPrediction(target, WStats)
+				if WPred.hitChance >= (TroopMorg.Prediction.Q:Value() * 0.01) and not QPred:mCollision(1) then
 					CastTargetSpell(_W)	
 			end
 		end
+	end
 	
 		if TroopMorg.Combo.RComb:Value() and Ready(_R) and ValidTarget(target, 400) then
 				if TroopMorg.Combo.MinMana:Value() <= GetPercentMana then 
@@ -104,6 +110,8 @@ OnTick(function ()
 		
 		if TroopMorg.Harass.WHarass:Value() and Ready(_W) and ValidTarget(target, 900) then
 			if TroopMorg.Harass.MinManaHarass:Value() <= GetPercentMana then
+				ocal WPred = GetPrediction(target, WStats)
+				if WPred.hitChance >= (TroopMorg.Prediction.Q:Value() * 0.01) and not QPred:mCollision(1) then
 				CastTargetSpell(target, _W)
 			end
 		end
@@ -120,7 +128,7 @@ if Mode() == "LaneClear" then
 			end
 			
 
-			if TroopMorg.LaneClear.Wlc:Value() and ValidTarget(closeminion, 900) >= TroopMorg.LaneClear.WMin:Value() then
+			if TroopMorg.LaneClear.Wlc:Value() and ValidTarget(closeminion, 900) then
 				if GetPercentMP(myHero) >= TroopMorg.LaneClear.MinManaLC:Value() then
 					CastSkillShot(_W, closeminion)
 				end
@@ -132,7 +140,7 @@ end
 
 	for _, enemy in pairs(GetEnemyHeroes()) do
 			--AutoR
-		if TroopMorg.Misc.UltX:Value() and Ready(_R) and ValidTarget(enemy, 1000) and EnemiesAround(enemy, 300) >= TroopMorg.Misc.EnemirR:Value() then
+		if TroopMorg.Misc.UltX:Value() and Ready(_R) and ValidTarget(enemy, 600) and EnemiesAround(enemy, 300) >= TroopMorg.Misc.EnemieR:Value() then
 				CastTargetSpell(enemy, _R)
 			end	
 			--Auto Ignite 
