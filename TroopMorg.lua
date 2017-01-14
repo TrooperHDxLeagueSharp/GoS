@@ -54,7 +54,7 @@ TroopMorg.Misc:Boolean("UltX", "Auto R on X Enemies", true)
 TroopMorg.Misc:Slider("EnemieR", "Min Enemies to Auto R",3,1,6,1)
 TroopMorg.Misc:Boolean("Lvlup", "Use Auto Level", true)
 TroopMorg.Misc:Boolean("Ig", "Use Auto Ignite", true)
-TroopMorg.Misc:Boolean("Ebs", "Use Blackshield", true)
+TroopMorg.Misc:Boolean("Ebs", "Use Blackshield [ NOT ADDED YET ]", true)
 
 TroopMorg:SubMenu("Prediction", "Prediction Settings")
 TroopMorg.Prediction:Slider("Q", "Hit-Chance: Q" , 30, 0, 99,1)
