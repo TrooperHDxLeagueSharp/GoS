@@ -16,11 +16,11 @@ function AutoUpdate(data)
     if tonumber(data) > tonumber(ver) then
         print("New version found! " .. data)
         print("Downloading update, please wait...")
-        DownloadFileAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/MorgGoS.lua", SCRIPT_PATH .. "MorgGoS.lua", function() print("Update Complete, please 2x F6!") return end)
+        DownloadFileAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/Troomorg.lua", SCRIPT_PATH .. "MorgGoS.lua", function() print("Update Complete, please 2x F6!") return end)
     end
 end
 
-GetWebResultAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/MorgGoS.lua", AutoUpdate)
+GetWebResultAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/Troomorg.lua", AutoUpdate)
 
 end	
 local MorganaGoS = Menu("Morgana", "Morgana")
@@ -148,7 +148,7 @@ if Mode() == "LaneClear" then
 				end
 			end
 		end
-	end	)
+	end
 
 OnDraw(function()
 	local pos = GetOrigin(myHero)
