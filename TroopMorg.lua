@@ -86,7 +86,7 @@ end
 
 OnTick(function ()
 	
-	local IgDamage = (50 + (20 * GetLevel(myHero)))
+	local Ig = (50 + (20 * GetLevel(myHero)))
 	local RStats = {delay = 0.050, range = 1000, radius = 300, speed = 1500 + GetMoveSpeed(myHero)}
 	local GetPercentMana = (GetCurrentMana(myHero) / GetMaxMana(myHero)) * 100
 	local target = GetCurrentTarget()
