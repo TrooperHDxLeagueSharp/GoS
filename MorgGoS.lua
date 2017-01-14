@@ -12,17 +12,6 @@ require("OpenPredict")
 
 require("DamageLib")
 
-
-function AutoUpdate(data)
-    if tonumber(data) > tonumber(ver) then
-        print("New version found! " .. data)
-        print("Downloading update, wait a moment...")
-        DownloadFileAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/MorgGoS.lua", SCRIPT_PATH .. "MorgGoS.lua", function() print("Update Complete, please 2x F6!") return end)
-    end
-end
-
-GetWebResultAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/MorgGoS.lua", AutoUpdate)
-
 local MorganaGoS = Menu("Morgana", "Morgana")
 MorganaGoS("Combo", "Combo")
 MorganaGoS:Boolean("QComb", "Use Q", true)
