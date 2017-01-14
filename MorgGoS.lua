@@ -96,7 +96,8 @@ OnTick(function ()
 				end
 			end
 		end	
-		
+	end
+
 	
 	if Mode() == "Harass" then
 		
