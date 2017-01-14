@@ -88,14 +88,11 @@ OnTick(function ()
 			end
 		end
 	
-
-
 		if MorganaGoS.Combo.RComb:Value() and Ready(_R) and ValidTarget(target, 400) then
 				if MorganaGoS.Combo.MinMana:Value() <= GetPercentMana then 
 					CastSpell(target, _R)	
 				end
 			end
-		end	
 	end
 
 	
@@ -134,7 +131,6 @@ end
 		if MorganaGoS.Misc.UltX:Value() and Ready(_R) and ValidTarget(enemy, 1000) and EnemiesAround(enemy, 300) >= MorganaGoS.Misc.EnemirR:Value() then
 				CastTargetSpell(enemy, _R)
 			end	
-		end
 			--Auto Ignite 
 		if GetCastName(myHero, SUMMONER_1):lower():find("summonerdot") then
 			if MorganaGoS.Misc.Ig:Value() and Ready(SUMMONER_1) and ValidTarget(enemy, 600) then
