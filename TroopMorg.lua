@@ -148,7 +148,7 @@ end
 			end	
 			--Auto Ignite 
 		if GetCastName(myHero, SUMMONER_1):lower():find("summonerdot") then
-			if TroopMorg.Misc.Ig:Value() and Ready(SUMMONER_1) and ValidTarget(enemy, 600) then
+			if TroopMorg.Misc.IgDamage:Value() and Ready(SUMMONER_1) and ValidTarget(enemy, 600) then
 				if GetCurrentHP(enemy) < IgDamage then
 					CastTargetSpell(enemy, SUMMONER_1)
 				end
@@ -156,7 +156,7 @@ end
 		end
 	
 		if GetCastName(myHero, SUMMONER_2):lower():find("summonerdot") then
-			if TroopMorg.Misc.Ig:Value() and Ready(SUMMONER_2) and ValidTarget(enemy, 600) then
+			if TroopMorg.Misc.IgDamage:Value() and Ready(SUMMONER_2) and ValidTarget(enemy, 600) then
 				if GetCurrentHP(enemy) < IDamage then
 					CastTargetSpell(enemy, SUMMONER_2)
 				end
