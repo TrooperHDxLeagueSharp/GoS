@@ -118,7 +118,7 @@ OnTick(function ()
 			if TroopMorg.Combo.MinMana:Value() <= GetPercentMana then
 				local Wpred = GetLinearAOEPrediction(target, MorgW)
 				if Wpred.hitChance >= (TroopMorg.Prediction.W:Value() * 0.01) then
-					CastTargetSpell(_W)	
+					CastTargetSpell(target, _W)
 			end
 		end
 	end
