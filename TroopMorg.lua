@@ -144,13 +144,6 @@ OnTick(function ()
 if Mode() == "LaneClear" then
 		
 		for _, closeminion in pairs(minionManager.objects) do
-			if TroopMorg.LaneClear.Qlc:Value() and ValidTarget(closeminion, 1125) then
-				if GetPercentMP(myHero) >= TroopMorg.LaneClear.MinManaLC:Value() then
-					CastSkillShot(_Q, closeminion)
-				end
-			end
-			
-
 			if TroopMorg.LaneClear.Wlc:Value() and ValidTarget(closeminion, 900) then
 				if GetPercentMP(myHero) >= TroopMorg.LaneClear.MinManaLC:Value() then
 					CastSkillShot(_W, closeminion)
