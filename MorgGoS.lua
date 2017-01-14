@@ -84,15 +84,13 @@ OnTick(function ()
 
 		if MorganaGoS.Combo.WComb:Value() and Ready(_W) and ValidTarget(target, 900) then
 			if MorganaGoS.Combo.MinMana:Value() <= GetPercentMana then
-					CastTargetSpell(_W)
-				end	
+					CastTargetSpell(_W)	
 			end
 		end
 	
 		if MorganaGoS.Combo.RComb:Value() and Ready(_R) and ValidTarget(target, 400) then
 				if MorganaGoS.Combo.MinMana:Value() <= GetPercentMana then 
 					CastSpell(target, _R)	
-				end
 			end
 		end
 	end
