@@ -22,7 +22,6 @@ end
 
 GetWebResultAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/Troomorg.lua", AutoUpdate)
 
-end	
 local MorganaGoS = Menu("Morgana", "Morgana")
 MorganaGoS("Combo", "Combo")
 MorganaGoS:Boolean("QComb", "Use Q", true)
