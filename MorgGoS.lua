@@ -158,4 +158,4 @@ OnDraw(function()
 end)
 
 
-print("Well thats my first GoS Script , have fun!")
+print("Well thats my first GoS Script , have fun!!")
