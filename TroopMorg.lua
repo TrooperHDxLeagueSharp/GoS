@@ -110,7 +110,7 @@ OnTick(function ()
 		
 		if TroopMorg.Harass.WHarass:Value() and Ready(_W) and ValidTarget(target, 900) then
 			if TroopMorg.Harass.MinManaHarass:Value() <= GetPercentMana then
-				ocal WPred = GetPrediction(target, WStats)
+				local WPred = GetPrediction(target, WStats)
 				if WPred.hitChance >= (TroopMorg.Prediction.Q:Value() * 0.01) and not QPred:mCollision(1) then
 				CastTargetSpell(target, _W)
 			end
