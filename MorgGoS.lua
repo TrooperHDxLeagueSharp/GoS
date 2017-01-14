@@ -1,6 +1,7 @@
 if GetObjectName(myHero) ~= "Morgana" then return end
 
 local ver = "0.02"
+local MorgQ = {delay = 0.45, speed = 1200, width = 60, range = 1175}
 
 require("Analytics")
 
@@ -15,7 +16,7 @@ require("DamageLib")
 function AutoUpdate(data)
     if tonumber(data) > tonumber(ver) then
         print("New version found! " .. data)
-        print("Downloading update, please wait...")
+        print("Downloading update, wait a moment...")
         DownloadFileAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/MorgGoS.lua", SCRIPT_PATH .. "MorgGoS.lua", function() print("Update Complete, please 2x F6!") return end)
     end
 end
@@ -74,41 +75,41 @@ OnTick(function ()
 	if Mode() == "Combo" then
 		
 		if MorganaGoS.Combo.QComb:Value() and Ready(_Q) and ValidTarget(target, 1175) then
-			if GetTickCount() > AnimationQ and GetTickCount() > nextAttack then
 				if MorganaGoS.Combo.MinMana:Value() <= GetPercentMana then 
-					CastTargetSpell(target, _Q)	
+					CastSkillShot(target, _Q)	
 				end
 			end
 		end	
 
-				if MorganaGoS.Combo.WComb:Value() and Ready(_W) and ValidTarget(target, 900) then
+		if MorganaGoS.Combo.WComb:Value() and Ready(_W) and ValidTarget(target, 900) then
 			if MorganaGoS.Combo.MinMana:Value() <= GetPercentMana then
-				if GetTickCount() > nextAttack and GetTickCount() > AnimationW then	
-					CastSpell(_W)
+					CastTargetSpell(_W)
 				end	
 			end
 		end
 
-				if MorganaGoS.Combo.RComb:Value() and Ready(_R) and ValidTarget(target, 400) then
-			if GetTickCount() > AnimationR and GetTickCount() > nextAttack then
+		if MorganaGoS.Combo.RComb:Value() and Ready(_R) and ValidTarget(target, 400) then
 				if MorganaGoS.Combo.MinMana:Value() <= GetPercentMana then 
-					CastTargetSpell(target, _R)	
+					CastSpell(target, _R)	
 				end
 			end
 		end	
-
-			if Mode() == "Harass" then
+	end
+	
+	if Mode() == "Harass" then
 		
 		if MorganaGoS.Harass.WHarass:Value() and Ready(_W) and ValidTarget(target, 900) then
-			if MorganaGoS.Harass.MinManaHarass:Value() <= GetPercentMana and GetTickCount() > nextAttack and GetTickCount() > AnimationW then
+			if MorganaGoS.Harass.MinManaHarass:Value() <= GetPercentMana then
 				CastTargetSpell(target, _W)
 			end
 		end
+	
+	end
 
 if Mode() == "LaneClear" then
 		
 		for _, closeminion in pairs(minionManager.objects) do
-			if MorganaGoS.LaneClear.Qlc:Value() and ValidTarget(closeminion, 1125) and GetTickCount() > nextAttack then
+			if MorganaGoS.LaneClear.Qlc:Value() and ValidTarget(closeminion, 1125) then
 				if GetPercentMP(myHero) >= MorganaGoS.LaneClear.MinManaLC:Value() then
 					CastSkillShot(_Q, closeminion)
 				end
@@ -121,17 +122,17 @@ if Mode() == "LaneClear" then
 				end
 			end
 		end
+		
+end
 
 
-			--AutoR
 	for _, enemy in pairs(GetEnemyHeroes()) do
+			--AutoR
 		if MorganaGoS.Misc.UltX:Value() and Ready(_R) and ValidTarget(enemy, 1000) and EnemiesAround(enemy, 300) >= MorganaGoS.Misc.EnemirR:Value() then
 				CastTargetSpell(enemy, _R)
 			end	
 		end
-	end
-
-	--Auto Ignite 
+			--Auto Ignite 
 		if GetCastName(myHero, SUMMONER_1):lower():find("summonerdot") then
 			if MorganaGoS.Misc.Ig:Value() and Ready(SUMMONER_1) and ValidTarget(enemy, 600) then
 				if GetCurrentHP(enemy) < IgDamage then
@@ -148,6 +149,9 @@ if Mode() == "LaneClear" then
 			end
 		end
 	end
+
+end)
+
 
 OnDraw(function(myHero)
 	local pos = GetOrigin(myHero)
