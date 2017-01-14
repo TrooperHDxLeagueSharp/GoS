@@ -87,6 +87,8 @@ OnTick(function ()
 				end	
 			end
 		end
+	end
+end
 
 		if MorganaGoS.Combo.RComb:Value() and Ready(_R) and ValidTarget(target, 400) then
 				if MorganaGoS.Combo.MinMana:Value() <= GetPercentMana then 
