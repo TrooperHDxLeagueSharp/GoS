@@ -37,7 +37,7 @@ require("DamageLib")
 local TroopMorg = Menu("Morgana", "Morgana")
 TroopMorg:SubMenu("Combo", "Combo")
 TroopMorg.Combo:Boolean("QComb", "Use Q", true)
-TroopMorg.Combo:Boolean("WCom", "Use W", true)
+TroopMorg.Combo:Boolean("WComb", "Use W", true)
 TroopMorg.Combo:Boolean("RComb", "Use R", true)
 TroopMorg.Combo:Slider("MinMana", "Min Mana To Combo",50,0,100,1)
 
