@@ -156,6 +156,7 @@ OnDraw(function()
 	if EMorganaGoS.Draw.DAA:Value() then DrawCircle(pos, 550 + GetHitBox(myHero), 1, 25, GoS.White) end
 	if MorganaGoS.Draw.DE:Value() then DrawCircle(pos, 475, 1, 25, GoS.Green) end
 end
+end
 end)
 
 
