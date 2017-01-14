@@ -91,8 +91,8 @@ OnTick(function ()
 
 		if TroopMorg.Combo.WComb:Value() and Ready(_W) and ValidTarget(target, 900) then
 			if TroopMorg.Combo.MinMana:Value() <= GetPercentMana then
-				local WPred = GetPrediction(target, WStats)
-				if WPred.hitChance >= (TroopMorg.Prediction.Q:Value() * 0.01) and not QPred:mCollision(1) then
+				local WPred = GetLinearAOEPrediction(target, WStats)
+				if WPred.hitChance >= (EzrealMenu.Prediction.Q:Value() * 0.01) then
 					CastTargetSpell(_W)	
 			end
 		end
@@ -110,8 +110,8 @@ OnTick(function ()
 		
 		if TroopMorg.Harass.WHarass:Value() and Ready(_W) and ValidTarget(target, 900) then
 			if TroopMorg.Harass.MinManaHarass:Value() <= GetPercentMana then
-				local WPred = GetPrediction(target, WStats)
-				if WPred.hitChance >= (TroopMorg.Prediction.Q:Value() * 0.01) and not QPred:mCollision(1) then
+				local WPred = GetLinearAOEPrediction(target, WStats)
+				if WPred.hitChance >= (EzrealMenu.Prediction.Q:Value() * 0.01) then
 				CastTargetSpell(target, _W)
 			end
 		end
