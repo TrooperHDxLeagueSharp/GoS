@@ -1,7 +1,7 @@
 if GetObjectName(myHero) ~= "Morgana" then return end
 
 local ver = "0.02"
-local MorgQ = {delay = 0.45, speed = 1200, width = 60, range = 1175}
+local MorgQ = {delay = 0.25, speed = 1200, width = 80, range = 1300}
 
 require("Analytics")
 
