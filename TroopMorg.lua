@@ -177,4 +177,5 @@ end)
 
 
 
-print("Well thats my first GoS Script , bugs may occur , have fun! Greetings from Trooper!")
+print("This is my first Lua script for gos!")
+print("I'll hope you enjoy it!")
