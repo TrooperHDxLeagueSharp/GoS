@@ -147,7 +147,7 @@ if Mode() == "LaneClear" then
 				end
 			end
 		end
-	end	)
+	end
 
 OnDraw(function()
 	local pos = GetOrigin(myHero)
