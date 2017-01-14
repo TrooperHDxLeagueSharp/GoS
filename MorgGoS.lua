@@ -21,7 +21,6 @@ function AutoUpdate(data)
 end
 
 GetWebResultAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/MorgGoS.lua", AutoUpdate)
-end	
 
 local MorganaGoS = Menu("Morgana", "Morgana")
 MorganaGoS("Combo", "Combo")
