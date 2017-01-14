@@ -1,6 +1,6 @@
 if GetObjectName(myHero) ~= "Morgana" then return end
 
-local ver = "0.01"
+local ver = "0.02"
 
 require("Analytics")
 
@@ -47,7 +47,7 @@ MorganaGoS.Misc:Boolean("Ig", "Use Auto Ignite", true)
 
 MorganaGoS:SubMenu("SkinChanger", "SkinChanger")
 
-local skinMeta = {["Morgaba"] = {"Classic", "Blade-Mistress", "Blackthorn", "Ghost-Bridge", "Exiled", "Sinful-Succulence", "Lumar-Wraith", "Bewitchintg", "Victorious"}}
+local skinMeta = {["Morgana"] = {"Classic", "Blade-Mistress", "Blackthorn", "Ghost-Bridge", "Exiled", "Sinful-Succulence", "Lumar-Wraith", "Bewitchintg", "Victorious"}}
 MorganaGoS.SkinChanger:DropDown('skin', myHero.charName.. " Skins", 1, skinMeta[myHero.charName], HeroSkinChanger, true)
 MorganaGoS.SkinChanger.skin.callback = function(model) HeroSkinChanger(myHero, model - 1) print(skinMeta[myHero.charName][model] .." ".. myHero.charName .. " Loaded!") end
 
