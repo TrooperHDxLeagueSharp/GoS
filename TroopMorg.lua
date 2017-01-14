@@ -57,8 +57,8 @@ TroopMorg.Misc:Boolean("Ig", "Use Auto Ignite", true)
 TroopMorg.Misc:Boolean("Ebs", "Use Blackshield", true)
 
 TroopMorg:SubMenu("Prediction", "Prediction Settings")
-TroopMorg.Prediction:Boolean("Q", "Hit-Chance: Q" , 30, 0, 99,1)
-TroopMorg.Prediction:Boolean("W", "Hit-Chance: W" , 30, 0, 99,1)
+TroopMorg.Prediction:Slider("Q", "Hit-Chance: Q" , 30, 0, 99,1)
+TroopMorg.Prediction:Slider("W", "Hit-Chance: W" , 30, 0, 99,1)
 
 TroopMorg:SubMenu("SkinChanger", "SkinChanger")
 
