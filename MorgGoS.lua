@@ -93,6 +93,7 @@ OnTick(function ()
 					CastSpell(target, _R)	
 				end
 			end
+		end
 	end
 
 	
