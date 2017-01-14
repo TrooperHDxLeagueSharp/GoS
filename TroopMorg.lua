@@ -3,6 +3,7 @@ if GetObjectName(myHero) ~= "Morgana" then return end
 local ver = "0.02"
 local MorgQ = {delay = 0.25, speed = 1200, width = 80, range = 1300}
 local MorgW = {delay = 0.01, speed = 1200, width = 279, range = 1300}
+local Move = {delay = 0.5, speed = math.huge, width = 50, range = math.huge}
 
 require("Analytics")
 
@@ -93,7 +94,7 @@ OnTick(function ()
 		if TroopMorg.Combo.WComb:Value() and Ready(_W) and ValidTarget(target, 900) then
 			if TroopMorg.Combo.MinMana:Value() <= GetPercentMana then
 				local Wpred = GetLinearAOEPrediction(target, MorgW)
-				if Wpred.hitChance >= (TroopMorg.Prediction.W:Value() * 0.01) then
+				if Wpred.hitChance >= (TroopMorg.Prediction.Wg:Value() * 0.01) then
 					CastTargetSpell(_W)	
 			end
 		end
