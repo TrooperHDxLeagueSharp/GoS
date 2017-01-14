@@ -45,6 +45,7 @@ MorganaGoS:Boolean("UltX", "Auto R on X Enemies", true)
 MorganaGoS.Misc:Slider("EnemieR", "Min Enemies to Auto R",3,1,6,1)
 MorganaGoS.Misc:Boolean("Lvlup", "Use Auto Level", true)
 MorganaGoS.Misc:Boolean("Ig", "Use Auto Ignite", true)
+MorganaGoS.Misc:Boolean("Ebs", "Use Blackshield", true)
 
 MorganaGoS:SubMenu("SkinChanger", "SkinChanger")
 
