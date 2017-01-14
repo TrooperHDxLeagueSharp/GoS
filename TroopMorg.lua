@@ -56,6 +56,10 @@ TroopMorg.Misc:Boolean("Lvlup", "Use Auto Level", true)
 TroopMorg.Misc:Boolean("Ig", "Use Auto Ignite", true)
 TroopMorg.Misc:Boolean("Ebs", "Use Blackshield", true)
 
+TroopMorg:SubMenu("Prediction", "Prediction Settings")
+TroopMorg.Prediction:Boolean("Q", "Hit-Chance: Q" , 30, 0, 99,1)
+TroopMorg.Prediction:Boolean("W", "Hit-Chance: W" , 30, 0, 99,1)
+
 TroopMorg:SubMenu("SkinChanger", "SkinChanger")
 
 local skinMeta = {["Morgana"] = {"Classic", "Blade-Mistress", "Blackthorn", "Ghost-Bridge", "Exiled", "Sinful-Succulence", "Lumar-Wraith", "Bewitchintg", "Victorious"}}
@@ -113,7 +117,7 @@ OnTick(function ()
 		if TroopMorg.Combo.WComb:Value() and Ready(_W) and ValidTarget(target, 900) then
 			if TroopMorg.Combo.MinMana:Value() <= GetPercentMana then
 				local Wpred = GetLinearAOEPrediction(target, MorgW)
-				if Wpred.hitChance >= (TroopMorg.Prediction.Wg:Value() * 0.01) then
+				if Wpred.hitChance >= (TroopMorg.Prediction.W:Value() * 0.01) then
 					CastTargetSpell(_W)	
 			end
 		end
