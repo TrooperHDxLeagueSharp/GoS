@@ -115,6 +115,7 @@ OnTick(function ()
 				CastTargetSpell(target, _W)
 			end
 		end
+	end
 	
 	end
 
@@ -170,7 +171,7 @@ OnDraw(function(myHero)
 	if TroopMorg.Draw.DrawW:Value() then DrawCircle(pos, 900, 1, 25, GoS.Blue) end
 	if TroopMorg.Draw.DrawE:Value() then DrawCircle(pos, 600, 1, 25, GoS.Blue) end
 	if TroopMorg.Draw.DrawR:Value() then DrawCircle(pos, 600, 1, 25, GoS.Green) end
-end)	
+end)
 
 
 
