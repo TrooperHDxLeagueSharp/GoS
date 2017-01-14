@@ -13,7 +13,7 @@ require("OpenPredict")
 require("DamageLib")
 
 local TroopMorg = Menu("Morgana", "Morgana")
-TroopMorg("Combo", "Combo")
+TroopMorg:SubMenu("Combo", "Combo")
 TroopMorg:Boolean("QComb", "Use Q", true)
 TroopMorg:Boolean("WCom", "Use W", true)
 TroopMorg:Boolean("RComb", "Use R", true)
