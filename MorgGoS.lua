@@ -154,7 +154,7 @@ OnDraw(function(myHero)
 	local mpos = GetMousePos()
 	if MorganaGoS.Draw.DrawQ:Value() then DrawCircle(pos, 1125, 1, 25, GoS.Red) end
 	if MorganaGoS.Draw.DrawW:Value() then DrawCircle(pos, 900, 1, 25, GoS.Blue) end
-	if EMorganaGoS.Draw.DrawE:Value() then DrawCircle(pos, 600,´1, 25, GoS.Blue) end
+	if MorganaGoS.Draw.DrawE:Value() then DrawCircle(pos, 600, 1, 25, GoS.Blue) end
 	if MorganaGoS.Draw.DrawR:Value() then DrawCircle(pos, 600, 1, 25, GoS.Green) end
 end)	
 
