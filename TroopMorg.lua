@@ -85,7 +85,7 @@ OnTick(function ()
 				if TroopMorg.Combo.MinMana:Value() <= GetPercentMana then 
 				local Qpred = GetPrediction(target, MorgQ)
 				if Qpred.hitChance >= (TroopMorg.Prediction.Q:Value() * 0.01) and not Qpred:mCollision(1) then
-					CastSkillShot(target, _Q)	
+					CastSkillShot(_Q,Qpred.castPos)	
 				end
 			end
 		end
