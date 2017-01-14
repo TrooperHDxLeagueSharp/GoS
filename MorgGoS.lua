@@ -2,22 +2,12 @@ if GetObjectName(myHero) ~= "Morgana" then return end
 
 local ver = "0.01"
 
-if not FileExist(COMMON_PATH.. "Analytics.lua") then
-  DownloadFileAsync("https://raw.githubusercontent.com/LoggeL/GoS/master/Analytics.lua", COMMON_PATH .. "Analytics.lua", function() end)
-end
-
 require("Analytics")
 
 Analytics("Troopgana", "trooperhdx")
 
-if not FileExist(COMMON_PATH.. "OpenPrecit.lua") then
-  DownloadFileAsync("https://raw.githubusercontent.com/Jo7j/GoS/master/OpenPredict/OpenPredict.lua", COMMON_PATH .. "OpenPredict.lua" function() end)
 
 require("OpenPredict")
-
-if not FileExist(COMMON_PATH.. "DamageLib.lua") then
-  DownloadFileAsync("https://raw.githubusercontent.com/D3ftsu/GoS/master/Common/DamageLib.lua", COMMON_PATH .. "DamageLib.lua", function() end)
- end
 
 require("DamageLib")
 
@@ -32,11 +22,6 @@ end
 
 GetWebResultAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/MorgGoS.lua", AutoUpdate)
 
-if FileExist(COMMON_PATH.."Paint.lua") then
-	require ("Draw")
-else
-print("Paint.lua not found please wait for download")
-DownloadFileAsync("https://raw.githubusercontent.com/loggel/GoS/master/Paint.lua", COMMON_PATH .."Paint.lua", function() print("Paint.lua Downloaded, Please 2x F6") return end)
 end	
 local MorganaGoS = Menu("Morgana", "Morgana")
 MorganaGoS("Combo", "Combo")
