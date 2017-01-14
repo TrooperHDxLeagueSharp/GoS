@@ -115,7 +115,7 @@ if Mode() == "LaneClear" then
 			end
 			
 
-			if MorganaGoS.LaneClear.Wlc:Value() and ValidTarget(closeminion, 900) >= EzrealMenu.LaneClear.WMin:Value() then
+			if MorganaGoS.LaneClear.Wlc:Value() and ValidTarget(closeminion, 900) >= MorganaGoS.LaneClear.WMin:Value() then
 				if GetPercentMP(myHero) >= MorganaGoS.LaneClear.MinManaLC:Value() then
 					CastSkillShot(_W, closeminion)
 				end
@@ -149,15 +149,14 @@ if Mode() == "LaneClear" then
 		end
 	end
 
-OnDraw(function()
+OnDraw(function(myHero)
 	local pos = GetOrigin(myHero)
-	if MorganaGoS.Draw.DQ:Value() then DrawCircle(pos, 1200, 1, 25, GoS.Red) end
-	if MorganaGoS.Draw.DW:Value() then DrawCircle(pos, 1050, 1, 25, GoS.Blue) end
-	if EMorganaGoS.Draw.DAA:Value() then DrawCircle(pos, 550 + GetHitBox(myHero), 1, 25, GoS.White) end
-	if MorganaGoS.Draw.DE:Value() then DrawCircle(pos, 475, 1, 25, GoS.Green) end
-end
-end
-end)
+	local mpos = GetMousePos()
+	if MorganaGoS.Draw.DrawQ:Value() then DrawCircle(pos, 1125, 1, 25, GoS.Red) end
+	if MorganaGoS.Draw.DrawW:Value() then DrawCircle(pos, 900, 1, 25, GoS.Blue) end
+	if EMorganaGoS.Draw.DrawE:Value() then DrawCircle(pos, 600,´1, 25, GoS.Blue) end
+	if MorganaGoS.Draw.DrawR:Value() then DrawCircle(pos, 600, 1, 25, GoS.Green) end
+end)	
 
 
 
