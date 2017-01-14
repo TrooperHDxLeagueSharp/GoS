@@ -48,6 +48,21 @@ TroopMorg.Draw:Boolean("DrawW", "Draw W Range", true)
 TroopMorg.Draw:Boolean("DrawE", "Draw E Range", true)
 TroopMorg.Draw:Boolean("DrawR", "Draw R Range", true)
 
+
+function Mode()
+    if _G.IOW_Loaded and IOW:Mode() then
+        return IOW:Mode()
+        elseif _G.PW_Loaded and PW:Mode() then
+        return PW:Mode()
+        elseif _G.DAC_Loaded and DAC:Mode() then
+        return DAC:Mode()
+        elseif _G.AutoCarry_Loaded and DACR:Mode() then
+        return DACR:Mode()
+        elseif _G.SLW_Loaded and SLW:Mode() then
+        return SLW:Mode()
+    end
+end
+
 OnTick(function ()
 	
 	local IgDamage = (50 + (20 * GetLevel(myHero)))
