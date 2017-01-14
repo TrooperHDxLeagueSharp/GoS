@@ -152,4 +152,4 @@ end)
 
 
 
-print("Well thats my first GoS Script , bugs may occur , have fun!!")
+print("Well thats my first GoS Script , bugs may occur , have fun! Greetings from Trooper!")
