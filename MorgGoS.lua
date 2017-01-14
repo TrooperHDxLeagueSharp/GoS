@@ -26,11 +26,11 @@ function AutoUpdate(data)
     if tonumber(data) > tonumber(ver) then
         print("New version found! " .. data)
         print("Downloading update, please wait...")
-        DownloadFileAsync("https://raw.githubusercontent.com/Toshibiotro/stuff/master/EternalEzreal.lua", SCRIPT_PATH .. "EternalEzreal.lua", function() print("Update Complete, please 2x F6!") return end)
+        DownloadFileAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/MorgGoS.lua", SCRIPT_PATH .. "MorgGoS.lua", function() print("Update Complete, please 2x F6!") return end)
     end
 end
 
-GetWebResultAsync("https://raw.githubusercontent.com/LoggeL/GoS/master/EternalEzreal.version", AutoUpdate)
+GetWebResultAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/MorgGoS.lua", AutoUpdate)
 
 if FileExist(COMMON_PATH.."Paint.lua") then
 	require ("Draw")
