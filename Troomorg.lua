@@ -156,7 +156,7 @@ OnDraw(function()
 	if MorganaGoS.Draw.DW:Value() then DrawCircle(pos, 1050, 1, 25, GoS.Blue) end
 	if EMorganaGoS.Draw.DAA:Value() then DrawCircle(pos, 550 + GetHitBox(myHero), 1, 25, GoS.White) end
 	if MorganaGoS.Draw.DE:Value() then DrawCircle(pos, 475, 1, 25, GoS.Green) end
-end)
+
 
 
 print("Well thats my first GoS Script , have fun!!")
