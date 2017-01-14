@@ -82,8 +82,8 @@ OnTick(function ()
 		
 		if TroopMorg.Combo.QComb:Value() and Ready(_Q) and ValidTarget(target, 1175) then
 				if TroopMorg.Combo.MinMana:Value() <= GetPercentMana then 
-				local MorgQ = GetPrediction(target, QStats)
-				if MorgQ.hitChance >= (TroopMorg.Prediction.Q:Value() * 0.01) and not MorgQ:mCollision(1) then
+				local Qpred = GetPrediction(target, MorgQ)
+				if Qpred.hitChance >= (TroopMorg.Prediction.Q:Value() * 0.01) and not Qpred:mCollision(1) then
 					CastSkillShot(target, _Q)	
 				end
 			end
@@ -92,8 +92,8 @@ OnTick(function ()
 
 		if TroopMorg.Combo.WComb:Value() and Ready(_W) and ValidTarget(target, 900) then
 			if TroopMorg.Combo.MinMana:Value() <= GetPercentMana then
-				local MorgW = GetLinearAOEPrediction(target, WStats)
-				if MorgW.hitChance >= (TroopMorg.Prediction.Q:Value() * 0.01) then
+				local Wpred = GetLinearAOEPrediction(target, MorgW)
+				if Wpred.hitChance >= (TroopMorg.Prediction.W:Value() * 0.01) then
 					CastTargetSpell(_W)	
 			end
 		end
@@ -111,8 +111,8 @@ OnTick(function ()
 		
 		if TroopMorg.Harass.WHarass:Value() and Ready(_W) and ValidTarget(target, 900) then
 			if TroopMorg.Harass.MinManaHarass:Value() <= GetPercentMana then
-				local MorgW = GetLinearAOEPrediction(target, WStats)
-				if MorgW.hitChance >= (TroopMorg.Prediction.Q:Value() * 0.01) then
+				local Wpredd = GetLinearAOEPrediction(target, MorgW)
+				if Wpredd.hitChance >= (TroopMorg.Prediction.W:Value() * 0.01) then
 				CastTargetSpell(target, _W)
 			end
 		end
