@@ -79,7 +79,7 @@ OnTick(function ()
 					CastSkillShot(target, _Q)	
 				end
 			end
-		end	
+		
 
 		if MorganaGoS.Combo.WComb:Value() and Ready(_W) and ValidTarget(target, 900) then
 			if MorganaGoS.Combo.MinMana:Value() <= GetPercentMana then
@@ -87,8 +87,8 @@ OnTick(function ()
 				end	
 			end
 		end
-	end
 	
+
 
 		if MorganaGoS.Combo.RComb:Value() and Ready(_R) and ValidTarget(target, 400) then
 				if MorganaGoS.Combo.MinMana:Value() <= GetPercentMana then 
@@ -96,7 +96,7 @@ OnTick(function ()
 				end
 			end
 		end	
-	end
+		
 	
 	if Mode() == "Harass" then
 		
