@@ -178,4 +178,3 @@ end)
 
 
 print("This is my first Lua script for gos!")
-print("I'll hope you enjoy it!")
