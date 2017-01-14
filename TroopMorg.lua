@@ -46,7 +46,6 @@ TroopMorg.Harass:Boolean("WHarass", "Use W", true)
 TroopMorg.Harass:Slider("MinManaHarass", "Min Mana To Harass",50,0,100,1)
 
 TroopMorg:SubMenu("LaneClear", "LaneClear", true)
-TroopMorg.LaneClear:Boolean("Qlc", "Use Q", true)
 TroopMorg.LaneClear:Boolean("Wlc", "Use W", true)
 TroopMorg.LaneClear:Slider("MinManaLC", "Min Mana To LaneClear",50,0,100,1)
 
