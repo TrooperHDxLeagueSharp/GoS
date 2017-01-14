@@ -1,13 +1,33 @@
 if GetObjectName(myHero) ~= "Morgana" then return end
 
 local ver = "0.02"
+
+
+
 local MorgQ = {delay = 0.25, speed = 1200, width = 80, range = 1300}
+
+
+
+
 local MorgW = {delay = 0.01, speed = 1200, width = 279, range = 1300}
+
+
+
+
+
+
+
+
+
 local Move = {delay = 0.5, speed = math.huge, width = 50, range = math.huge}
 
-require("Analytics")
 
-Analytics("Troopgana", "trooperhdx")
+
+
+
+
+
+
 
 
 require("OpenPredict")
