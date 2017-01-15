@@ -17,13 +17,7 @@ local MorgW = {delay = 0.01, speed = 1200, width = 279, range = 1300}
 
 
 
-
-
 local Move = {delay = 0.5, speed = math.huge, width = 50, range = math.huge}
-
-
-
-
 
 
 
@@ -114,22 +108,21 @@ OnTick(function ()
 		end
 		
 
-		if TroopMorg.Combo.WComb:Value() and Ready(_W) and ValidTarget(target, 900) then
+		if TroopMorg.Combo.WComb:Value() and Ready(_W) and ValidTarget(target, 700) then
 			if TroopMorg.Combo.MinMana:Value() <= GetPercentMana then
 				local Wpred = GetLinearAOEPrediction(target, MorgW)
 				if Wpred.hitChance >= (TroopMorg.Prediction.W:Value() * 0.01) then
-					CastTargetSpell(target, _W)
+			  	CastSkillShot(_W,Wpred.castPos)
 			end
 		end
 	end
 	
-		if TroopMorg.Combo.RComb:Value() and Ready(_R) and ValidTarget(target, 400) then
+					if TroopMorg.Combo.RComb:Value() and Ready(_R) and ValidTarget(target, 500) then
 				if TroopMorg.Combo.MinMana:Value() <= GetPercentMana then 
-					CastSpell(target, _R)	
+					CastTargetSpell(target, _R)	
 			end
 		end
 	end
-
 	
 	if Mode() == "Harass" then
 		
@@ -137,7 +130,7 @@ OnTick(function ()
 			if TroopMorg.Harass.MinManaHarass:Value() <= GetPercentMana then
 				local Wpredd = GetLinearAOEPrediction(target, MorgW)
 				if Wpredd.hitChance >= (TroopMorg.Prediction.W:Value() * 0.01) then
-				CastTargetSpell(target, _W)
+				CastSkillShot(_W,Wpredd.castPos)
 			end
 		end
 	end
@@ -165,7 +158,7 @@ end
 			--Auto Ignite 
 		if GetCastName(myHero, SUMMONER_1):lower():find("summonerdot") then
 			if TroopMorg.Misc.Ig:Value() and Ready(SUMMONER_1) and ValidTarget(enemy, 600) then
-				if GetCurrentHP(enemy) < IgDamage then
+				if GetCurrentHP(enemy) < Ig then
 					CastTargetSpell(enemy, SUMMONER_1)
 				end
 			end
@@ -173,7 +166,7 @@ end
 	
 		if GetCastName(myHero, SUMMONER_2):lower():find("summonerdot") then
 			if TroopMorg.Misc.Ig:Value() and Ready(SUMMONER_2) and ValidTarget(enemy, 600) then
-				if GetCurrentHP(enemy) < IDamage then
+				if GetCurrentHP(enemy) < Ig then
 					CastTargetSpell(enemy, SUMMONER_2)
 				end
 			end
