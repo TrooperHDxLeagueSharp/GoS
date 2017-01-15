@@ -139,7 +139,7 @@ OnTick(function ()
 			if TroopMorg.Harass.QHarass:Value() and Ready(_Q) and ValidTarget(target, 1125) then
 			if TroopMorg.Harass.MinManaHarass:Value() <= GetPercentMana then
 				local Qpredd = GetPrediction(target, MorgQ)
-				if Qpredd.hitChance >= (TroopMorg.Prediction.Q:Value() * 0.01) then
+				if Qpredd.hitChance >= (TroopMorg.Prediction.Q:Value() * 0.01) and not Qpredd:mCollision(1) then
 				CastSkillShot(_Q,Qpredd.castPos)
 			end
 		end
