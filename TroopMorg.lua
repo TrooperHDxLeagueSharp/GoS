@@ -37,6 +37,7 @@ TroopMorg.Combo:Slider("MinMana", "Min Mana To Combo",50,0,100,1)
 
 TroopMorg:SubMenu("Harass", "Harass", true)
 TroopMorg.Harass:Boolean("WHarass", "Use W", true)
+TroopMorg.Harass:Boolean("QHarass", "Use Q", true)
 TroopMorg.Harass:Slider("MinManaHarass", "Min Mana To Harass",50,0,100,1)
 
 TroopMorg:SubMenu("LaneClear", "LaneClear", true)
@@ -131,6 +132,15 @@ OnTick(function ()
 				local Wpredd = GetLinearAOEPrediction(target, MorgW)
 				if Wpredd.hitChance >= (TroopMorg.Prediction.W:Value() * 0.01) then
 				CastSkillShot(_W,Wpredd.castPos)
+			end
+		end
+	end
+
+			if TroopMorg.Harass.QHarass:Value() and Ready(_Q) and ValidTarget(target, 1125) then
+			if TroopMorg.Harass.MinManaHarass:Value() <= GetPercentMana then
+				local Qpredd = GetPrediction(target, MorgQ)
+				if Qpredd.hitChance >= (TroopMorg.Prediction.Q:Value() * 0.01) then
+				CastSkillShot(_Q,Qpred.castPos)
 			end
 		end
 	end
