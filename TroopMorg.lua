@@ -1,6 +1,6 @@
 if GetObjectName(myHero) ~= "Morgana" then return end
 
-local ver = "0.02"
+local ver = "0.03"
 
 
 local MorgQ = {delay = 0.25, speed = 1200, width = 80, range = 1300}
@@ -59,7 +59,7 @@ TroopMorg.Draw:Boolean("DrawR", "Draw R Range", true)
 
 
 
-CC = {
+local CC = {
 -- Aatrox
 ["AatroxQ"] 					= 	{ slot = _Q , champName = "Aatrox"				, spellType = "circular" 	, projectileSpeed = 2000		, spellDelay = 600	, spellRange = 650		, spellRadius = 285		, collision = false	}, 
 ["AatroxE"] 					= 	{ slot = _E , champName = "Aatrox"				, spellType = "line" 		, projectileSpeed = 1250		, spellDelay = 250	, spellRange = 1075		, spellRadius = 100		, collision = false	, projectileName = "AatroxBladeofTorment_mis.troy"}, 
@@ -67,6 +67,7 @@ CC = {
 ["AhriSeduce"] 					= 	{ slot = _E , champName = "Ahri"				, spellType = "line" 	 	, projectileSpeed = 1550		, spellDelay = 250	, spellRange = 1000		, spellRadius = 60		, collision = true	, projectileName = "Ahri_Charm_mis.troy"}, 
 -- Alistar
 ["Pulverize"] 					= 	{ slot = _Q , champName = "Alistar"				, spellType = "circular" 	, projectileSpeed = math.huge	, spellDelay = 250	, spellRange = 365		, spellRadius = 365		, collision = false	},
+["Headbutt"] 					= 	{ slot = _W , champName = "Alistar"				, spellType = "target" 		, projectileSpeed = math.huge	, spellDelay = 50	, spellRange = 800		, spellRadius = 50		, collision = false	},
 -- Amumu
 ["BandageToss"] 				= 	{ slot = _Q , champName = "Amumu"				, spellType = "line" 	 	, projectileSpeed = 2000		, spellDelay = 250	, spellRange = 1100		, spellRadius = 80		, collision = true	, projectileName = "Bandage_beam.troy"}, 
 ["CurseoftheSadMummy"] 			= 	{ slot = _R , champName = "Amumu"				, spellType = "aoe" 	 	, projectileSpeed = math.huge	, spellDelay = 250	, spellRange = 560		, spellRadius = 560		, collision = false	},
@@ -78,6 +79,7 @@ CC = {
 ["BardQ"] 						= 	{ slot = _Q , champName = "Bard"				, spellType = "line" 	 	, projectileSpeed = 1600		, spellDelay = 250	, spellRange = 950		, spellRadius = 60		, collision = true	, projectileName = "Bard_Base_Q_Missile_mis.troy"},
 -- Blitzcrank
 ["RocketGrab"] 					= 	{ slot = _Q , champName = "Blitzcrank"			, spellType = "line" 	 	, projectileSpeed = 1800		, spellDelay = 250	, spellRange = 1050		, spellRadius = 70		, collision = true	, projectileName = "FistGrab_mis.troy"},
+["PowerFistAttack"] 			= 	{ slot = _E , champName = "Blitzcrank"			, spellType = "target" 	 	, projectileSpeed = math.huge	, spellDelay = 50	, spellRange = 500		, spellRadius = 70		, collision = false	},
 -- Braum
 ["BraumQ"] 						= 	{ slot = _Q , champName = "Braum"				, spellType = "line" 	 	, projectileSpeed = 1200		, spellDelay = 250	, spellRange = 1000		, spellRadius = 100		, collision = true	, projectileName = ""},
 ["BraumRWrapper"] 				= 	{ slot = _R , champName = "Braum"				, spellType = "line" 	 	, projectileSpeed = 1125		, spellDelay = 500	, spellRange = 1250		, spellRadius = 100		, collision = false	, projectileName = ""},
@@ -133,7 +135,7 @@ CC = {
 -- Kassadin
 ["ForcePulse"] 					= 	{ slot = _E , champName = "Kassadin"			, spellType = "line" 		, projectileSpeed = math.huge	, spellDelay = 250	, spellRange = 700		, spellRadius = 100		, collision = false	, projectileName = ""},
 -- Kayle
-["JudicatorReckoning"] 			= 	{ slot = _Q , champName = "Kayle"				, spellType = "target" 		, projectileSpeed = 1000		, spellDelay = 250	, spellRange = 650		, spellRadius = 0		, collision = false	},
+["JudicatorReckoning"] 			= 	{ slot = _Q , champName = "Kayle"				, spellType = "target" 		, projectileSpeed = 1000		, spellDelay = 250	, spellRange = 650		, spellRadius = 50		, collision = false	},
 -- KhaZix
 ["KhazixW"] 					= 	{ slot = _W , champName = "KhaZix"				, spellType = "line" 		, projectileSpeed = 1700		, spellDelay = 250	, spellRange = 1100		, spellRadius = 70		, collision = true	, projectileName = "Khazix_W_mis_enhanced.troy"},
 ["khazixwlong"] 				= 	{ slot = _W , champName = "KhaZix"				, spellType = "line" 		, projectileSpeed = 1700		, spellDelay = 250	, spellRange = 1025		, spellRadius = 70		, collision = true	, projectileName = "Khazix_W_mis_enhanced.troy"},
@@ -224,8 +226,6 @@ CC = {
 -- TahmKench
 ["TahmKenchQ"]					= 	{ slot = _Q , champName = "TahmKench"			, spellType = "line" 		, projectileSpeed = 2000		, spellDelay = 250	, spellRange = 950		, spellRadius = 90		, collision = true	, projectileName = ""},
 ["TahmKenchE"]					= 	{ slot = _E , champName = "TahmKench"			, spellType = "target" 		, projectileSpeed = math.huge	, spellDelay = 250	, spellRange = 250		, spellRadius = 0		, collision = false	}, -- check spellname
--- Taric
-["Dazzle"]						= 	{ slot = _E , champName = "Taric"				, spellType = "target" 		, projectileSpeed = math.huge	, spellDelay = 250	, spellRange = 625		, spellRadius = 0		, collision = false	}, -- check spellname
 -- Teemo
 ["BlindingDart"]				= 	{ slot = _Q , champName = "Teemo"				, spellType = "target" 		, projectileSpeed = 2000		, spellDelay = 250	, spellRange = 580		, spellRadius = 0		, collision = false	},
 -- Thresh
@@ -255,8 +255,8 @@ CC = {
 -- Warwick
 ["InfiniteDuress"]				= 	{ slot = _R , champName = "Warwick"				, spellType = "target" 		, projectileSpeed = math.huge	, spellDelay = 0	, spellRange = 700		, spellRadius = 0		, collision = false	}, -- check spellname
 -- Xerath
-["XerathArcaneBarrage2"]		= 	{ slot = _W , champName = "Xerath"				, spellType = "circular" 	, projectileSpeed = 1600		, spellDelay = 250	, spellRange = 1125		, spellRadius = 60		, collision = true	},
-["XerathMageSpear"]				= 	{ slot = _E , champName = "Xerath"				, spellType = "line" 		, projectileSpeed = math.huge	, spellDelay = 750	, spellRange = 1100		, spellRadius = 280		, collision = false	, projectileName = ""},
+["XerathArcaneBarrage2"]		= 	{ slot = _W , champName = "Xerath"				, spellType = "circular" 	, projectileSpeed = math.huge	, spellDelay = 250	, spellRange = 1125		, spellRadius = 60		, collision = false	},
+["XerathMageSpear"]				= 	{ slot = _E , champName = "Xerath"				, spellType = "line" 		, projectileSpeed = 1600		, spellDelay = 750	, spellRange = 1100		, spellRadius = 280		, collision = true	, projectileName = ""},
 -- Yasou
 ["yasuoq3w"]					= 	{ slot = _Q , champName = "Yasou"				, spellType = "line" 		, projectileSpeed = 1200		, spellDelay = 250	, spellRange = 1025		, spellRadius = 90		, collision = false	, projectileName = ""},
 -- Zac
@@ -272,54 +272,122 @@ CC = {
 ["ZyraBrambleZone"]				= 	{ slot = _R , champName = "Zyra"				, spellType = "circular" 	, projectileSpeed = math.huge	, spellDelay = 500	, spellRange = 700		, spellRadius = 525		, collision = false	}
 }
 
-local global_ticks = 0
-local global_ticks1 = 0
+----------------------------------------------------------------
+----------------------------------------------------------------
 
-OnProcessSpell(function(unit, spellProc)
--- E
-if TroopMorg.AutoE.CC:Value() then
-local CCSpell = CC[spellProc.name]
-	if CCSpell then
-		if CCSpell.champName == GetObjectName(unit) and GetTeam(unit) ~= GetTeam(myHero) and GetObjectType(unit) == Obj_AI_Hero and CanUseSpell(myHero,_E) == READY then
-			if spellProc.target == myHero and CCSpell.spellType == "target" then
-				CastSpell(_E)
-			end
-			if CCSpell.spellType == "line" and IsInDistance(unit, CCSpell.spellRange + GetMoveSpeed(myHero)) then
-				CCVector = VectorWay(spellProc.startPos, spellProc.endPos)
-				CCDistanceStartEnd = DistanceBetween(spellProc.startPos, spellProc.endPos)
-				CCVector = (CCVector/CCDistanceStartEnd)*CCSpell.spellRange
-				CCSpellTimeNeed = ((CCSpell.spellRange / (CCSpell.projectileSpeed+50))*1000)+CCSpell.spellDelay
-				WayOnTime = CCVector/CCSpellTimeNeed
-				startTime = GetGameTimer()
-				stargingPos = spellProc.startPos
-				endingPos = spellProc.startPos + CCVector
-				radius = CCSpell.spellRadius
-					-- end
-				--	
+local function VectorWay(A,B)
+WayX = B.x - A.x
+WayY = B.y - A.y
+WayZ = B.z - A.z
+return Vector(WayX, WayY, WayZ)
+end
 
-				--
+local incSpells = {}
+local myTeam = {}
+
+OnLoad(function()
+    myTeam[GetNetworkID(myHero)] = myHero
+    for i,v in pairs(GetAllyHeroes()) do
+    	myTeam[GetNetworkID(v)] = v
+    end
+end)
+
+OnProcessSpell(function(unit,spell)
+  if unit.team ~= myHero.team then
+	-- if unit.charName == "Kayle" then
+		-- print(spell.name)
+	-- end
+    if CC[spell.name] ~= nil then
+      local skill = CC[spell.name]
+      if skill.spellType == "target" and spell.target.team == myHero.team and GetObjectType(spell.target) == Obj_AI_Hero then
+         if skill.projectileSpeed < 1500 then
+			incSpells[spell.name] = {sType = skill.spellType, sPos = spell.startPos, ePos = spell.target, delay = skill.spellDelay or 250, radius = skill.spellRadius, speed = skill.projectileSpeed or math.huge, createTime = GetTickCount()}	
+		 else
+			if CanUseSpell(myHero,_E) == READY and GetDistance(spell.target) < 850 then
+				CastTargetSpell(spell.target,_E)
 			end
-			if CCSpell.spellType == "circular" and IsInDistance(unit, CCSpell.spellRange + GetMoveSpeed(myHero)) then
-				local spellTime = (DistanceBetween((GetOrigin(unit)),spellProc.endPos) / CCSpell.projectileSpeed) * 1000 + CCSpell.spellDelay
-				local Ticker = GetTickCount()	
-				if (global_ticks) < Ticker then
-					DelayAction(function()
-								
-						if GetDistance(spellProc.endPos) < CCSpell.spellRadius then
-							CastSpell(_E)
-						end
-					end, (spellTime)/1000 - 0.23)
-					global_ticks = Ticker
-				end	
+		 end
+      elseif skill.spellType == "line" then
+			incSpells[spell.name] = {sType = skill.spellType, sPos = spell.startPos, ePos = (spell.startPos + (VectorWay(spell.startPos, spell.endPos)):normalized() * skill.spellRange), delay = skill.spellDelay or 250, radius = skill.spellRadius, speed = skill.projectileSpeed, createTime = GetTickCount()}
+      elseif skill.spellType == "circular" then
+			incSpells[spell.name] = {sType = skill.spellType, sPos = spell.startPos, ePos = spell.endPos, delay = skill.spellDelay or 250, radius = skill.spellRadius, speed = skill.projectileSpeed or math.huge, createTime = GetTickCount()}	
+      end
+    end
+  end
+end)
+
+OnDraw(function()
+    for i,v in pairs(incSpells) do
+		if v ~= nil then
+			for _,a in pairs(myTeam) do
+				if GetDistance(a) < 875 then
+					TargetSkillBlock(i,v,_E)
+					LineSkillshotBlock(i,v,a,_E)
+					CircularSkillshotBlock(i,v,a,_E)
+				end
 			end
-			if CCSpell.spellType == "aoe"  and IsInDistance(unit, CCSpell.spellRange) then
-				CastSpell(_E)
+		end
+    end
+end)
+
+function TargetSkillBlock(i,v,cast)
+	if v.sType == "target" then
+		local spellPos = v.sPos
+		if GetTickCount()-v.createTime > v.delay then
+			spellPos = v.sPos + VectorWay(v.sPos,v.ePos.pos):normalized() * (v.speed/1000*(GetTickCount()-v.createTime - v.delay))
+		end
+		local timeToDodge = 50
+		local dodgeHere = spellPos + VectorWay(v.sPos,v.ePos.pos):normalized() * (v.speed*(timeToDodge + v.delay)/1000)
+		if GetDistance(v.ePos.pos,spellPos) <= GetDistance(dodgeHere,spellPos) and GetDistance(v.ePos.pos, v.sPos) - v.radius - GetHitBox(v.ePos) <= GetDistance(v.sPos,v.ePos.pos) then
+			if CanUseSpell(myHero,cast) then
+				CastTargetSpell(v.ePos,cast)
 			end
+		end
+		if GetDistance(spellPos,v.sPos) > GetDistance(v.ePos.pos,v.sPos) then
+			incSpells[i] = nil
 		end
 	end
 end
 
-end)
+function LineSkillshotBlock(i,v,who,cast)
+	if v.sType == "line" then
+		local spellOnMe = v.sPos + VectorWay(v.sPos,v.ePos):normalized() * GetDistance(who.pos,v.sPos)
+		local spellPos = v.sPos
+		if GetTickCount()-v.createTime > v.delay then
+			spellPos = v.sPos + VectorWay(v.sPos,v.ePos):normalized() * (v.speed/1000*(GetTickCount()-v.createTime - v.delay))
+		end
+		local timeToDodge = 100
+		local dodgeHere = spellPos + VectorWay(v.sPos,v.ePos):normalized() * (v.speed*(timeToDodge + v.delay)/1000)
+			if GetDistance(spellOnMe,spellPos) <= GetDistance(dodgeHere,spellPos) and GetDistance(spellOnMe, v.sPos) - v.radius - GetHitBox(who) <= GetDistance(v.sPos,v.ePos) then
+				if GetDistance(who,spellOnMe) < v.radius + GetHitBox(who) then
+					if CanUseSpell(myHero,cast) == READY then
+						CastTargetSpell(who,cast)
+					end
+				end
+			end
+		if GetDistance(spellPos,v.sPos) >= GetDistance(v.sPos,v.ePos) then
+			incSpells[i] = nil
+		end
+	end
+end
+
+function CircularSkillshotBlock(i,v,who,cast)
+	if v.sType == "circular" then
+		DrawCircle(v.ePos,v.radius,2,1,ARGB(255,255,200,0)); --draw starting pos
+		local timeToDodge = ((v.radius + GetHitBox(who) - GetDistance(who,v.ePos))/GetMoveSpeed(who))*1000
+		local timeToHit = (GetDistance(v.ePos,v.sPos)/v.speed)*1000 + v.createTime - GetTickCount() + v.delay
+		if GetDistance(v.ePos,who) < v.radius + GetHitBox(who) then
+			if timeToHit < timeToDodge and timeToHit > 0.05 then
+				if CanUseSpell(myHero,cast) == READY then
+					CastTargetSpell(who,cast)
+				end
+			end
+		end
+		if timeToHit <= 0 then
+			incSpells[i] = nil
+		end
+	end
+end
 
 
 
