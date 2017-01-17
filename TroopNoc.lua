@@ -1,6 +1,6 @@
 if GetObjectName(myHero) ~= "Nocturne" then return end
 
-local ver = "0.02"
+local ver = "0.03"
 
 local NocQ = {delay = 0.25, speed = 1200, width = 80, range = 1300}
 
