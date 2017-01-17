@@ -424,40 +424,6 @@ OnTick(function ()
 	local target = GetCurrentTarget()
 	local movePos = GetPrediction(target,Move).castPos
 
-		if startTime ~= nil then
-			local Time = GetGameTimer() - startTime
-			Time = Time*1000
-			local spellPos0 = stargingPos + ((Time+25)*WayOnTime)
-			local spellPos = stargingPos + (Time*WayOnTime)
-			local spellPos1 = stargingPos + ((Time-150)*WayOnTime)
-			local spellPos2 = stargingPos + ((Time-100)*WayOnTime)
-			local spellPos3 = stargingPos + ((Time-50)*WayOnTime)
-			-- DrawCircle(endingPos, radius,3,255,0xff0ffff0)
-			-- DrawCircle(spellPos, radius+GetHitBox(myHero)*1.8,1,255,0xffffffff)
-			-- DrawCircle(spellPos0, radius+GetHitBox(myHero)*1.8,1,255,0xffffffff)
-			-- DrawCircle(spellPos1, radius+GetHitBox(myHero)*1.8,1,255,0xffffffff)
-			if CanUseSpell(myHero,_E) == READY then
-				if GetDistance(spellPos0) <= radius+GetHitBox(myHero)*1.2 then
-					-- CastSpell(_E)
-				end
-				if GetDistance(spellPos) <= radius+GetHitBox(myHero)*1.2 then
-					CastSpell(_E)
-				end
-				if GetDistance(spellPos1) <= radius+GetHitBox(myHero)*1.2 then
-					CastSpell(_E)
-				end
-				if GetDistance(spellPos2) <= radius+GetHitBox(myHero)*1.2 then
-					CastSpell(_E)
-				end
-				if GetDistance(spellPos3) <= radius+GetHitBox(myHero)*1.2 then
-					CastSpell(_E)
-				end
-			end
-			if Time >= CCSpellTimeNeed then
-				startTime = nil
-			end
-		end
-
 
 local myHeroPos = GetOrigin(myHero)
 
