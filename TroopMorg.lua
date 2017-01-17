@@ -17,10 +17,10 @@ require("OpenPredict")
 require("DamageLib")
 
 function AutoUpdate(data)
-    if tonumber(data) > tonumber(version) then
-        PrintChat("<font color="#BBBBB"><b>TroopMorg</b> new version found! " .. data)
-        PrintChat("<font color="#BBBBB"><b>Downloading update</b>, please wait...")
-        DownloadFileAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/TroopMorg.lua", SCRIPT_PATH.."TroopMorg.lua", function() PrintChat("<font color="#BBBBB"><b>TroopMorg</b> | Update Complete, please 2x F6!") return end)
+    if tonumber(data) > tonumber(ver) then
+        print("New version found! " .. data)
+        print("Downloading update, please wait...")
+        DownloadFileAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/TroopMorg.lua", SCRIPT_PATH .. "TroopMorg.lua", function() print("Update Complete, please 2x F6!") return end)
     end
 end
 
