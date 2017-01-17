@@ -1,6 +1,6 @@
 if GetObjectName(myHero) ~= "Nocturne" then return end
 
-local ver = "0.01"
+local ver = "0.02"
 
 local NocQ = {delay = 0.25, speed = 1200, width = 80, range = 1300}
 
@@ -9,6 +9,16 @@ local Move = {delay = 0.5, speed = math.huge, width = 50, range = math.huge}
 require("OpenPredict")
 
 require("DamageLib")
+
+function AutoUpdate(data)
+    if tonumber(data) > tonumber(version) then
+        PrintChat("<font color="#BBBBB"><b>TroopNoc</b> new version found! " .. data)
+        PrintChat("<font color="#BBBBB"><b>Downloading update</b>, please wait...")
+        DownloadFileAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/TroopNoc.lua", SCRIPT_PATH.."TroopNoc.lua", function() PrintChat("<font color="#BBBBB"><b>TroopNoc</b> | Update Complete, please 2x F6!") return end)
+    end
+end
+
+GetWebResultAsync("https://raw.githubusercontent.com/TrooperHDxLeagueSharp/GoS/master/TroopNoc.version", AutoUpdate)
 
 local TroopNoc = Menu("Nocturne", "Nocturne")
 TroopNoc:SubMenu("Combo", "Combo")
