@@ -1,6 +1,6 @@
 if GetObjectName(myHero) ~= "Morgana" then return end
 
-local ver = "0.07"
+local ver = "0.08"
 
 
 local MorgQ = {delay = 0.25, speed = 1200, width = 80, range = 1300}
