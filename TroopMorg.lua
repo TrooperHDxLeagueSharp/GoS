@@ -1,6 +1,6 @@
 if GetObjectName(myHero) ~= "Morgana" then return end
 
-local ver = "0.06"
+local ver = "0.07
 
 
 local MorgQ = {delay = 0.25, speed = 1200, width = 80, range = 1300}
@@ -572,4 +572,4 @@ end)
 
 
 
-print("This is my first Lua script for gos!")
+print("Morgana injected , dominate the rift!!")
