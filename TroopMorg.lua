@@ -572,4 +572,4 @@ end)
 
 
 
-print("Morgana injected , dominate the rift!!")
+print("Morgana injected , dominate the rift. Have fun!")
